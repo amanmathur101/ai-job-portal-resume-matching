@@ -1,5 +1,5 @@
 // All endpoints match the existing backend exactly — do not modify.
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8081';
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 function getToken() {
   return localStorage.getItem('jwt');
