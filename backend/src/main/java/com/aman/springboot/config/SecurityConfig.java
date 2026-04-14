@@ -33,7 +33,7 @@ public class SecurityConfig {
     @Autowired
     private JwtFilter jwtFilter;
 
-    @Value("${ALLOWED_ORIGINS:https://ai-job-portal-resume-matching.vercel.app,https://ai-job-portal-resume-matching-j2k4rb3f9.vercel.app,https://ai-job-portal-resume-matching-j2k4rb3f9.vercel.app}")
+    @Value("${ALLOWED_ORIGINS}")
     private String allowedOriginsRaw;
 
     @Bean
