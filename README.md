@@ -68,12 +68,12 @@ A full-stack Job Portal web application that connects job seekers and recruiters
 - Dockerized Spring Boot application
 - Deployed on Render  
 - Live URL:
-https://jobportalbackend-dpm3.onrender.com
+  https://ai-job-portal-resume-matching.onrender.com
 
 ### Frontend
 - Static frontend deployed on Vercel  
 - Live URL:
-  https://jobportalbackend-dpm3.onrender.com
+  https://ai-job-portal-resume-matching.vercel.app
 
 ---
 
