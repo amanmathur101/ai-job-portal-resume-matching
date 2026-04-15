@@ -1,5 +1,6 @@
 // All endpoints match the existing backend exactly — do not modify.
-const API_BASE = import.meta.env.VITE_API_BASE;
+// Fixed — fallback prevents undefined URL
+const API_BASE = import.meta.env.VITE_API_BASE ?? 'https://ai-job-portal-resume-matching.onrender.com';
 
 function getToken() {
   return localStorage.getItem('jwt');
