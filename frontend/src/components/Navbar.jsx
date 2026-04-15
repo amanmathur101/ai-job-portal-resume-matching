@@ -18,8 +18,6 @@ export default function Navbar() {
   const navLink = 'text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors';
   const activeLink = 'text-sm font-medium text-blue-600';
 
-  const avatarUrl = `https://api.dicebear.com/7.x/initials/svg?seed=${user?.username}&backgroundColor=dbeafe&textColor=1d4ed8`;
-
   return (
     <header className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,18 +54,9 @@ export default function Navbar() {
                     <span className="text-xs font-medium text-gray-900">{user?.username}</span>
                     <span className="text-[10px] text-gray-400 uppercase tracking-wide">{user?.role}</span>
                   </div>
-
-                  {/* DP Avatar */}
-                  <img
-                    src={avatarUrl}
-                    alt={user?.username}
-                    className="w-9 h-9 rounded-full border-2 border-blue-200 shadow-sm"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = `https://ui-avatars.com/api/?name=${user?.username}&background=dbeafe&color=1d4ed8`;
-                    }}
-                  />
-
+                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-sm font-semibold uppercase">
+                    {user?.username?.[0] || 'U'}
+                  </div>
                   <button
                     onClick={logout}
                     className="text-sm text-red-500 hover:text-red-700 font-medium transition-colors"
@@ -108,29 +97,18 @@ export default function Navbar() {
           {isAuthenticated ? (
             <>
               <div className="flex items-center gap-3 px-3 py-2 mb-2 bg-gray-50 rounded-lg">
-
-                {/* DP Avatar - Mobile */}
-                <img
-                  src={avatarUrl}
-                  alt={user?.username}
-                  className="w-10 h-10 rounded-full border-2 border-blue-200 shadow-sm"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = `https://ui-avatars.com/api/?name=${user?.username}&background=dbeafe&color=1d4ed8`;
-                  }}
-                />
-
+                <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-sm font-semibold uppercase">
+                  {user?.username?.[0]}
+                </div>
                 <div>
                   <p className="text-sm font-medium text-gray-900">{user?.username}</p>
                   <p className="text-xs text-gray-400 uppercase">{user?.role}</p>
                 </div>
               </div>
-
               <NavLink to="/jobs" onClick={() => setMenuOpen(false)}
                 className="block px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-50">
                 Jobs
               </NavLink>
-
               {hasRole('RECRUITER', 'ADMIN') && (
                 <>
                   <NavLink to="/post-job" onClick={() => setMenuOpen(false)}
@@ -143,7 +121,6 @@ export default function Navbar() {
                   </NavLink>
                 </>
               )}
-
               <button onClick={() => { setMenuOpen(false); logout(); }}
                 className="w-full text-left px-3 py-2 rounded-lg text-sm text-red-600 hover:bg-red-50 font-medium mt-1">
                 Logout
